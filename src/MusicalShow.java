@@ -7,8 +7,7 @@ public class MusicalShow extends Show {
         this.musicAuthor = musicAuthor;
         this.librettoText = librettoText;
     }
-
-    // Печать либретто
+// Печать либретто
     public void printLibretto() {
         System.out.println("Либретто спектакля \"" + title + "\":");
         System.out.println("Текст либретто: " + librettoText);
