@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Director extends Person {
     private int numberOfShows; // количество поставленных спектаклей
 
@@ -9,6 +11,28 @@ public class Director extends Person {
     public int getNumberOfShows() {
         return numberOfShows;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Director director = (Director) o;
+        return numberOfShows == director.numberOfShows;
+    }
+
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), numberOfShows);
+    }
+
+
+    @Override
+    public String toString() {
+        return super.toString() + " (" + numberOfShows + " спектаклей)";
+    }
+
 }
 
 
