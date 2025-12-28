@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Person {
     protected String name; // имя человека
     protected String surname; // фамилия человека
@@ -9,6 +11,23 @@ public class Person {
         this.gender = gender;
     }
 
+    // сравнение объектов
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return Objects.equals(name, person.name) &&
+                Objects.equals(surname, person.surname) &&
+                Objects.equals(gender, person.gender);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, surname, gender);
+    }
+
+    // вывод имени и фамилии
     @Override
     public String toString() {
         return name + " " + surname;
